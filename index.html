@@ -31,23 +31,23 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <style>
+ <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     * { box-sizing: border-box; }
     body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .form-input { transition: all 0.2s ease; }
-    .form-input:focus { box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25); }
+    .form-input:focus { box-shadow: 0 0 0 3px rgba(54,54,54,0.25); }
     .upload-area { transition: all 0.3s ease; }
     .upload-area:hover, .upload-area.drag-over {
-      background-color: #f0fdfa;
-      border-color: #14b8a6;
+      background-color: #f6f6f6;
+      border-color: #474747;
     }
-    /* ------ HEADER MODERNO ------ */
+   /* ------ HEADER MODERNO ------ */
     .modern-header {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(10px);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(54, 54, 54, 0.15);
       padding: 25px 40px;
       display: flex;
       align-items: center;
@@ -55,12 +55,12 @@
       position: relative;
       overflow: hidden;
       transition: all 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(54,54,54,0.13);
       margin-bottom: 32px;
     }
     .modern-header:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 35px rgba(54, 54, 54, 0.22);
     }
     .logo-container {
       display: flex;
@@ -72,20 +72,20 @@
     .logo {
       width: 70px;
       height: 70px;
-      background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+      background: linear-gradient(135deg, #363636 0%, #474747 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 12px;
-      box-shadow: 0 5px 15px rgba(15, 118, 110, 0.3);
+      box-shadow: 0 5px 15px rgba(54, 54, 54, 0.3);
       transition: all 0.3s ease;
     }
     .logo:hover { transform: scale(1.05) rotate(5deg); }
     .logo img {
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 2px 4px rgba(54,54,54,0.13));
     }
     .brand {
       display: flex;
@@ -97,10 +97,10 @@
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(to right, #0f766e, #14b8a6);
+      background: linear-gradient(to right, #363636, #474747);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-shadow: 0 2px 4px rgba(54, 54, 54, 0.10);
       position: relative;
     }
     .brand-name::after {
@@ -111,14 +111,14 @@
       transform: translateX(-50%);
       width: 80%;
       height: 3px;
-      background: linear-gradient(to right, #0f766e, #14b8a6);
+      background: linear-gradient(to right, #363636, #474747);
       border-radius: 10px;
     }
     .tagline {
       margin-top: 12px;
       font-size: 1.1rem;
       font-weight: 500;
-      color: #0f766e;
+      color: #363636;
       letter-spacing: 1px;
       text-align: center;
     }
@@ -127,18 +127,18 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(15, 118, 110, 0.15) 100%);
+      background: linear-gradient(135deg, rgba(90, 90, 90, 0.12) 0%, rgba(54, 54, 54, 0.15) 100%);
       top: -50px; left: -50px; z-index: 1;
     }
     .decor-circle:nth-child(2) {
       width: 100px; height: 100px; top: auto; left: auto; bottom: -30px; right: -30px;
-      background: linear-gradient(135deg, rgba(20,184,166,0.2) 0%, rgba(15,118,110,0.2) 100%);
+      background: linear-gradient(135deg, rgba(90,90,90,0.17) 0%, rgba(54,54,54,0.22) 100%);
     }
     .decor-square {
       position: absolute;
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, rgba(20,184,166,0.1) 0%, rgba(15,118,110,0.1) 100%);
+      background: linear-gradient(135deg, rgba(90,90,90,0.07) 0%, rgba(54,54,54,0.10) 100%);
       transform: rotate(45deg);
       top: 50%; right: 20%; z-index: 1;
     }
