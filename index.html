@@ -10,8 +10,8 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   
-  <!-- Configurações de tema Tailwind -->
-  <script>
+<!-- Configurações de tema Tailwind (novo tom grafite) -->
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -36,18 +36,18 @@
     * { box-sizing: border-box; }
     body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .form-input { transition: all 0.2s ease; }
-    .form-input:focus { box-shadow: 0 0 0 3px rgba(54,54,54,0.25); }
+    .form-input:focus { box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25); }
     .upload-area { transition: all 0.3s ease; }
     .upload-area:hover, .upload-area.drag-over {
-      background-color: #f6f6f6;
-      border-color: #474747;
+      background-color: #f0fdfa;
+      border-color: #14b8a6;
     }
     /* ------ HEADER MODERNO ------ */
     .modern-header {
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(54, 54, 54, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       padding: 25px 40px;
       display: flex;
       align-items: center;
@@ -55,12 +55,12 @@
       position: relative;
       overflow: hidden;
       transition: all 0.4s ease;
-      border: 1px solid rgba(54,54,54,0.13);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       margin-bottom: 32px;
     }
     .modern-header:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(54, 54, 54, 0.22);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     }
     .logo-container {
       display: flex;
@@ -72,20 +72,20 @@
     .logo {
       width: 70px;
       height: 70px;
-      background: linear-gradient(135deg, #363636 0%, #474747 100%);
+      background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 12px;
-      box-shadow: 0 5px 15px rgba(54, 54, 54, 0.3);
+      box-shadow: 0 5px 15px rgba(15, 118, 110, 0.3);
       transition: all 0.3s ease;
     }
     .logo:hover { transform: scale(1.05) rotate(5deg); }
     .logo img {
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 2px 4px rgba(54,54,54,0.13));
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
     .brand {
       display: flex;
@@ -97,10 +97,10 @@
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(to right, #363636, #474747);
+      background: linear-gradient(to right, #0f766e, #14b8a6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 4px rgba(54, 54, 54, 0.10);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: relative;
     }
     .brand-name::after {
@@ -111,14 +111,14 @@
       transform: translateX(-50%);
       width: 80%;
       height: 3px;
-      background: linear-gradient(to right, #363636, #474747);
+      background: linear-gradient(to right, #0f766e, #14b8a6);
       border-radius: 10px;
     }
     .tagline {
       margin-top: 12px;
       font-size: 1.1rem;
       font-weight: 500;
-      color: #363636;
+      color: #0f766e;
       letter-spacing: 1px;
       text-align: center;
     }
@@ -127,18 +127,18 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(90, 90, 90, 0.12) 0%, rgba(54, 54, 54, 0.15) 100%);
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(15, 118, 110, 0.15) 100%);
       top: -50px; left: -50px; z-index: 1;
     }
     .decor-circle:nth-child(2) {
       width: 100px; height: 100px; top: auto; left: auto; bottom: -30px; right: -30px;
-      background: linear-gradient(135deg, rgba(90,90,90,0.17) 0%, rgba(54,54,54,0.22) 100%);
+      background: linear-gradient(135deg, rgba(20,184,166,0.2) 0%, rgba(15,118,110,0.2) 100%);
     }
     .decor-square {
       position: absolute;
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, rgba(90,90,90,0.07) 0%, rgba(54,54,54,0.10) 100%);
+      background: linear-gradient(135deg, rgba(20,184,166,0.1) 0%, rgba(15,118,110,0.1) 100%);
       transform: rotate(45deg);
       top: 50%; right: 20%; z-index: 1;
     }
@@ -168,7 +168,7 @@
       <div class="decor-square"></div>
       <div class="logo-container">
         <div class="logo">
-          <img src="https://www.dropbox.com/scl/fi/yk8fihzt3127wn79e3r73/logosemfundo.png?rlkey=df4omwj59owgtgg6esnpe603f&st=dbc8nwcd&dl=1" 
+          <img src="https://www.dropbox.com/scl/fi/yk8fihzt3127wn79e3r73/logosemfundo.png?rlkey=df4omwj59owgtgg6esnpe603f&st=7lozhzqr&dl=1" 
                alt="Logo Formighieri">
         </div>
         <div class="brand">
@@ -312,4 +312,139 @@
     const msg = document.getElementById('msg');
     const showMsg = (t, ok = true) => {
       msg.textContent = t;
-      msg.class
+      msg.className = `text-sm mt-3 p-2 rounded-md ${ok ? 'text-green-700 bg-green-50 border border-green-200' : 'text-red-700 bg-red-50 border border-red-200'}`;
+    };
+    const clearMsg = () => { msg.textContent = ''; msg.className = ''; };
+
+    // XML handling
+    const xmlInput = document.getElementById('xml_file');
+    const xmlDrop = document.getElementById('xmlDrop');
+    const xmlPrompt = document.getElementById('xmlPrompt');
+    const openXmlChooser = () => xmlInput.click();
+    xmlDrop.addEventListener('click', openXmlChooser);
+    ['dragover','dragenter'].forEach(evt => {
+      xmlDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        xmlDrop.classList.add('drag-over');
+      });
+    });
+    ['dragleave','drop'].forEach(evt => {
+      xmlDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        xmlDrop.classList.remove('drag-over');
+      });
+    });
+    xmlDrop.addEventListener('drop', e => {
+      if(e.dataTransfer.files.length) {
+        xmlInput.files = e.dataTransfer.files;
+        displayXmlName();
+      }
+    });
+    xmlInput.addEventListener('change', displayXmlName);
+    function displayXmlName(){
+      if(xmlInput.files.length) {
+        xmlPrompt.textContent = xmlInput.files[0].name;
+        xmlPrompt.classList.add('text-fgPrimary', 'font-medium');
+      } else {
+        xmlPrompt.textContent = 'Clique ou arraste o XML aqui';
+        xmlPrompt.classList.remove('text-fgPrimary', 'font-medium');
+      }
+    }
+
+    // PDF handling
+    const pdfInput = document.getElementById('pdf_files');
+    const pdfDrop = document.getElementById('pdfDrop');
+    const pdfPrompt = document.getElementById('pdfPrompt');
+    const pdfList = document.getElementById('pdfList');
+    const openPdfChooser = () => pdfInput.click();
+    pdfDrop.addEventListener('click', openPdfChooser);
+    ['dragover','dragenter'].forEach(evt => {
+      pdfDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        pdfDrop.classList.add('drag-over');
+      });
+    });
+    ['dragleave','drop'].forEach(evt => {
+      pdfDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        pdfDrop.classList.remove('drag-over');
+      });
+    });
+    pdfDrop.addEventListener('drop', e => {
+      if(e.dataTransfer.files.length) {
+        pdfInput.files = e.dataTransfer.files;
+        displayPdfNames();
+      }
+    });
+    pdfInput.addEventListener('change', displayPdfNames);
+    function displayPdfNames(){
+      pdfList.innerHTML = '';
+      if(pdfInput.files.length){
+        Array.from(pdfInput.files).forEach(f => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center gap-2';
+          li.innerHTML = `
+            <i data-lucide="file-text" class="w-4 h-4 text-fgPrimary"></i>
+            ${f.name}
+          `;
+          pdfList.appendChild(li);
+        });
+        pdfPrompt.textContent = `${pdfInput.files.length} arquivo(s) selecionado(s)`;
+        pdfPrompt.classList.add('text-fgPrimary', 'font-medium');
+      } else {
+        pdfPrompt.textContent = 'Clique ou arraste os PDFs aqui';
+        pdfPrompt.classList.remove('text-fgPrimary', 'font-medium');
+      }
+      lucide.createIcons();
+    }
+
+    // Form submission
+    document.getElementById('fgForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMsg();
+      const btnSubmit = document.getElementById('btnSubmit');
+      const originalBtnText = btnSubmit.innerHTML;
+      btnSubmit.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Enviando...
+      `;
+      btnSubmit.disabled = true;
+      try {
+        if (!xmlInput.files.length) throw new Error('Por favor, selecione um arquivo XML');
+        if (!pdfInput.files.length) throw new Error('Por favor, selecione pelo menos um PDF');
+        const formData = new FormData();
+        formData.append('nome', document.getElementById('nome').value);
+        formData.append('cpf_cnpj', document.getElementById('cpf_cnpj').value);
+        formData.append('endereco', document.getElementById('endereco').value);
+        formData.append('cidade', document.getElementById('cidade').value);
+        formData.append('estado', document.getElementById('estado').value);
+        formData.append('cep', document.getElementById('cep').value);
+        formData.append('telefone', document.getElementById('telefone').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('xml_file', xmlInput.files[0]);
+        for (let i = 0; i < pdfInput.files.length; i++) {
+          formData.append('pdf_files[]', pdfInput.files[i]);
+        }
+        const response = await fetch(CONFIG.WEBHOOK_URL, {
+          method: 'POST',
+          body: formData
+        });
+        if (!response.ok) throw new Error('Erro ao enviar os documentos. Tente novamente.');
+        showMsg('Documentação enviada com sucesso! Entraremos em contato em breve.', true);
+        document.getElementById('fgForm').reset();
+        displayXmlName();
+        displayPdfNames();
+      } catch (error) {
+        showMsg(error.message, false);
+        console.error('Erro no envio:', error);
+      } finally {
+        btnSubmit.innerHTML = originalBtnText;
+        btnSubmit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
