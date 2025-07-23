@@ -9,114 +9,192 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-  <!-- Tailwind runtime tweaks -->
+  
+  <!-- Configurações de tema -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            fgPrimary: '#d4af37',      // dourado principal
-            fgPrimaryLight: '#e9c96e', // dourado claro (hover / focus)
-            fgDark: '#3b3b3b',         // fundo escuro do topo
+            fgPrimary: '#0f766e',
+            fgPrimaryLight: '#14b8a6',
+            fgSecondary: '#0891b2',
+            fgLight: '#f0fdfa',
+          },
+          boxShadow: {
+            subtle: '0 6px 20px rgba(15,118,110,.15)',
           }
         }
       }
     }
   </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .form-input {
+      transition: all 0.2s ease;
+    }
+    
+    .form-input:focus {
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+    }
+    
+    .upload-area {
+      transition: all 0.3s ease;
+    }
+    
+    .upload-area:hover, .upload-area.drag-over {
+      background-color: #f0fdfa;
+      border-color: #14b8a6;
+    }
+  </style>
 </head>
 
-<body class="min-h-screen bg-gray-100 text-slate-800">
-  <!-- HEADER ESCURO COM LOGO -->
-  <header class="bg-fgDark py-4">
-    <div class="max-w-4xl mx-auto px-4 flex items-center gap-4">
-      <img src="logo_formighieri.png" alt="Formighieri Logo" class="h-10 w-auto" />
-      <span class="text-white text-lg font-semibold tracking-wide">FORMIGHIERI</span>
-    </div>
-  </header>
-
+<body class="min-h-screen bg-fgLight p-4 md:p-6 flex items-center justify-center">
   <!-- CONTAINER PRINCIPAL -->
-  <main class="max-w-4xl mx-auto px-4 md:px-6 py-10">
-    <form id="fgForm" class="bg-white shadow-lg rounded-2xl p-6 md:p-8 space-y-10">
-      <!-- TÍTULO -->
-      <h1 class="text-2xl font-bold text-center">Enviar XML &amp; PDF(s) do Projeto</h1>
-
-      <!-- DADOS DO CLIENTE -->
-      <section class="space-y-6">
-        <h2 class="flex items-center gap-2 text-xl font-semibold"><i data-lucide="user" class="w-5 h-5 text-fgPrimary"></i>Dados do Cliente</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="relative">
-            <input type="text" id="nome" name="nome" placeholder="Nome completo" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+  <div class="relative max-w-xl w-full mx-auto">
+    <!-- HEADER -->
+    <header class="text-center mb-6">
+      <div class="flex flex-col items-center">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="bg-fgPrimary p-2 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M16 13H8"></path>
+              <path d="M16 17H8"></path>
+              <path d="M10 9H8"></path>
+            </svg>
           </div>
-          <div class="relative">
-            <input type="text" id="cpf_cnpj" name="cpf_cnpj" placeholder="CPF ou CNPJ" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="id-card" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative md:col-span-2">
-            <input type="text" id="endereco" name="endereco" placeholder="Endereço" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="map" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative">
-            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="map-pin" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative">
-            <input type="text" id="estado" name="estado" placeholder="Estado" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="globe" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative">
-            <input type="text" id="cep" name="cep" placeholder="CEP" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative">
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="phone" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
-          <div class="relative md:col-span-2">
-            <input type="email" id="email" name="email" placeholder="E‑mail" required class="peer block w-full h-12 rounded-lg border border-slate-300 pl-11 pr-3 font-medium focus:outline-none focus:border-fgPrimary focus:ring-2 focus:ring-fgPrimary/30" />
-            <i data-lucide="at-sign" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          </div>
+          <h1 class="text-3xl font-bold text-gray-800 tracking-tight">Formighieri</h1>
         </div>
-      </section>
-
-      <!-- XML UPLOAD -->
-      <section class="space-y-4">
-        <h2 class="flex items-center gap-2 text-xl font-semibold"><i data-lucide="file-code" class="w-5 h-5 text-fgPrimary"></i>Arquivo XML</h2>
-        <input type="file" id="xml_file" name="xml_file" accept=".xml" required class="hidden" />
-        <div id="xmlDrop" class="flex flex-col items-center justify-center h-24 md:h-28 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer text-slate-500 hover:border-fgPrimary transition">
-          <i data-lucide="upload" class="w-6 h-6 mb-1"></i>
-          <span id="xmlPrompt" class="text-sm">Clique ou arraste o XML aqui</span>
-        </div>
-      </section>
-
-      <!-- PDF UPLOAD -->
-      <section class="space-y-4">
-        <h2 class="flex items-center gap-2 text-xl font-semibold"><i data-lucide="file-text" class="w-5 h-5 text-fgPrimary"></i>PDF(s) do Projeto</h2>
-        <input type="file" id="pdf_files" name="pdf_files" accept="application/pdf" multiple required class="hidden" />
-        <div id="pdfDrop" class="flex flex-col items-center justify-center h-24 md:h-28 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer text-slate-500 hover:border-fgPrimary transition">
-          <i data-lucide="upload" class="w-6 h-6 mb-1"></i>
-          <span id="pdfPrompt" class="text-sm">Clique ou arraste PDF(s) aqui</span>
-        </div>
-        <ul id="pdfList" class="space-y-1 text-sm text-slate-600"></ul>
-      </section>
-
-      <!-- SUBMIT -->
-      <div>
-        <button type="submit" id="btnSubmit" class="w-full h-12 bg-fgPrimary text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-fgPrimaryLight transition">
-          <i data-lucide="send" class="w-5 h-5"></i>
-          Enviar Documentação
-        </button>
-        <div id="msg" class="text-center text-sm mt-4"></div>
+        <p class="text-gray-600 max-w-md">Envio simplificado de documentação para pisos e móveis sob medida</p>
       </div>
-    </form>
-  </main>
+    </header>
 
-  <!-- FOOTER -->
-  <footer class="text-center py-6 text-slate-500 text-sm bg-transparent">© 2025 Formighieri • fulljob.com.br</footer>
+    <!-- CARD FORM -->
+    <main class="bg-white rounded-xl shadow-subtle p-6 md:p-8">
+      <form id="fgForm" class="space-y-8">
+        <!-- DADOS DO CLIENTE -->
+        <section class="space-y-5">
+          <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800 pb-2 border-b border-gray-100">
+            <i data-lucide="user" class="w-5 h-5 text-fgPrimary"></i>
+            Dados do Cliente
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Nome -->
+            <div class="relative">
+              <input type="text" id="nome" name="nome" placeholder="Nome completo" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="user" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- CPF/CNPJ -->
+            <div class="relative">
+              <input type="text" id="cpf_cnpj" name="cpf_cnpj" placeholder="CPF ou CNPJ" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="id-card" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- Endereço -->
+            <div class="relative md:col-span-2">
+              <input type="text" id="endereco" name="endereco" placeholder="Endereço" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="map" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- Cidade -->
+            <div class="relative">
+              <input type="text" id="cidade" name="cidade" placeholder="Cidade" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="map-pin" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- Estado -->
+            <div class="relative">
+              <input type="text" id="estado" name="estado" placeholder="Estado" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="globe" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- CEP -->
+            <div class="relative">
+              <input type="text" id="cep" name="cep" placeholder="CEP" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- Telefone -->
+            <div class="relative">
+              <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="phone" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            
+            <!-- Email -->
+            <div class="relative md:col-span-2">
+              <input type="email" id="email" name="email" placeholder="E‑mail" required 
+                     class="form-input w-full h-10 pl-10 pr-4 border border-gray-200 rounded-lg font-medium text-gray-700 focus:border-fgPrimaryLight focus:outline-none" />
+              <i data-lucide="at-sign" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- UPLOAD XML -->
+        <section class="space-y-3">
+          <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
+            <i data-lucide="file-code" class="w-5 h-5 text-fgPrimary"></i>
+            Arquivo XML
+          </h2>
+          <input type="file" id="xml_file" name="xml_file" accept=".xml" required class="hidden" />
+          <div id="xmlDrop" class="upload-area flex flex-col items-center justify-center py-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer text-gray-500">
+            <i data-lucide="file" class="w-5 h-5 mb-2 text-fgPrimary"></i>
+            <span id="xmlPrompt" class="text-sm">Clique ou arraste o XML aqui</span>
+          </div>
+        </section>
+
+        <!-- UPLOAD PDFs -->
+        <section class="space-y-3">
+          <h2 class="flex items-center gap-2 text-lg font-semibold text-gray-800">
+            <i data-lucide="file-text" class="w-5 h-5 text-fgPrimary"></i>
+            PDF(s) do Projeto
+          </h2>
+          <input type="file" id="pdf_files" name="pdf_files" accept="application/pdf" multiple required class="hidden" />
+          <div id="pdfDrop" class="upload-area flex flex-col items-center justify-center py-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer text-gray-500">
+            <i data-lucide="file" class="w-5 h-5 mb-2 text-fgPrimary"></i>
+            <span id="pdfPrompt" class="text-sm">Clique ou arraste os PDFs aqui</span>
+          </div>
+          <ul id="pdfList" class="mt-2 space-y-1 text-sm text-gray-600"></ul>
+        </section>
+
+        <!-- SUBMIT -->
+        <div class="pt-2">
+          <button type="submit" id="btnSubmit" class="w-full h-11 bg-gradient-to-r from-fgPrimary to-fgPrimaryLight text-white font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-subtle transition">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            Enviar Documentação
+          </button>
+          <div id="msg" class="text-center text-sm mt-3"></div>
+        </div>
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center mt-8 text-gray-500 text-sm">
+      © 2025 Formighieri Pisos & Móveis • fulljob.com.br
+    </footer>
+  </div>
 
   <!-- SCRIPT PRINCIPAL -->
   <script>
+    // Inicializar ícones
+    lucide.createIcons();
+    
     const CONFIG = {
       WEBHOOK_URL: 'https://hook.us2.make.com/zsto5jdep8arsb9k47q0iy1ivxcwrpxq',
       MAX_XML_SIZE: 5 * 1024 * 1024,
@@ -127,11 +205,183 @@
     const msg = document.getElementById('msg');
     const showMsg = (t, ok = true) => {
       msg.textContent = t;
-      msg.className = `text-sm mt-4 p-2 rounded-md ${ok ? 'text-green-700 bg-green-100 border border-green-300' : 'text-red-700 bg-red-100 border border-red-300'}`;
+      msg.className = `text-sm mt-3 p-2 rounded-md ${ok ? 'text-green-700 bg-green-50 border border-green-200' : 'text-red-700 bg-red-50 border border-red-200'}`;
     };
-    const clearMsg = () => { msg.textContent = ''; msg.className = ''; };
+    
+    const clearMsg = () => {
+      msg.textContent = '';
+      msg.className = '';
+    };
 
     // XML handling
     const xmlInput = document.getElementById('xml_file');
     const xmlDrop = document.getElementById('xmlDrop');
-    const xmlPrompt = document.getElementById
+    const xmlPrompt = document.getElementById('xmlPrompt');
+    const openXmlChooser = () => xmlInput.click();
+
+    xmlDrop.addEventListener('click', openXmlChooser);
+    
+    // Drag events for XML
+    ['dragover','dragenter'].forEach(evt => {
+      xmlDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        xmlDrop.classList.add('drag-over');
+      });
+    });
+    
+    ['dragleave','drop'].forEach(evt => {
+      xmlDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        xmlDrop.classList.remove('drag-over');
+      });
+    });
+    
+    xmlDrop.addEventListener('drop', e => {
+      if(e.dataTransfer.files.length) {
+        xmlInput.files = e.dataTransfer.files;
+        displayXmlName();
+      }
+    });
+    
+    xmlInput.addEventListener('change', displayXmlName);
+    
+    function displayXmlName(){
+      if(xmlInput.files.length) {
+        xmlPrompt.textContent = xmlInput.files[0].name;
+        xmlPrompt.classList.add('text-fgPrimary', 'font-medium');
+      } else {
+        xmlPrompt.textContent = 'Clique ou arraste o XML aqui';
+        xmlPrompt.classList.remove('text-fgPrimary', 'font-medium');
+      }
+    }
+
+    // PDF handling
+    const pdfInput = document.getElementById('pdf_files');
+    const pdfDrop = document.getElementById('pdfDrop');
+    const pdfPrompt = document.getElementById('pdfPrompt');
+    const pdfList = document.getElementById('pdfList');
+    const openPdfChooser = () => pdfInput.click();
+
+    pdfDrop.addEventListener('click', openPdfChooser);
+    
+    // Drag events for PDF
+    ['dragover','dragenter'].forEach(evt => {
+      pdfDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        pdfDrop.classList.add('drag-over');
+      });
+    });
+    
+    ['dragleave','drop'].forEach(evt => {
+      pdfDrop.addEventListener(evt, e => {
+        e.preventDefault();
+        pdfDrop.classList.remove('drag-over');
+      });
+    });
+    
+    pdfDrop.addEventListener('drop', e => {
+      if(e.dataTransfer.files.length) {
+        pdfInput.files = e.dataTransfer.files;
+        displayPdfNames();
+      }
+    });
+    
+    pdfInput.addEventListener('change', displayPdfNames);
+    
+    function displayPdfNames(){
+      pdfList.innerHTML = '';
+      
+      if(pdfInput.files.length){
+        Array.from(pdfInput.files).forEach(f => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center gap-2';
+          li.innerHTML = `
+            <i data-lucide="file-text" class="w-4 h-4 text-fgPrimary"></i>
+            ${f.name}
+          `;
+          pdfList.appendChild(li);
+        });
+        pdfPrompt.textContent = `${pdfInput.files.length} arquivo(s) selecionado(s)`;
+        pdfPrompt.classList.add('text-fgPrimary', 'font-medium');
+      } else {
+        pdfPrompt.textContent = 'Clique ou arraste os PDFs aqui';
+        pdfPrompt.classList.remove('text-fgPrimary', 'font-medium');
+      }
+      
+      // Atualizar ícones
+      lucide.createIcons();
+    }
+
+    // Form submission
+    document.getElementById('fgForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMsg();
+      
+      const btnSubmit = document.getElementById('btnSubmit');
+      const originalBtnText = btnSubmit.innerHTML;
+      
+      // Mostrar estado de carregamento
+      btnSubmit.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Enviando...
+      `;
+      btnSubmit.disabled = true;
+      
+      try {
+        // Validações básicas
+        if (!xmlInput.files.length) {
+          throw new Error('Por favor, selecione um arquivo XML');
+        }
+        
+        if (!pdfInput.files.length) {
+          throw new Error('Por favor, selecione pelo menos um PDF');
+        }
+        
+        // Criar FormData para envio
+        const formData = new FormData();
+        formData.append('nome', document.getElementById('nome').value);
+        formData.append('cpf_cnpj', document.getElementById('cpf_cnpj').value);
+        formData.append('endereco', document.getElementById('endereco').value);
+        formData.append('cidade', document.getElementById('cidade').value);
+        formData.append('estado', document.getElementById('estado').value);
+        formData.append('cep', document.getElementById('cep').value);
+        formData.append('telefone', document.getElementById('telefone').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('xml_file', xmlInput.files[0]);
+        
+        // Adicionar todos os PDFs
+        for (let i = 0; i < pdfInput.files.length; i++) {
+          formData.append('pdf_files[]', pdfInput.files[i]);
+        }
+        
+        // Simular envio (substitua pelo seu endpoint real)
+        const response = await fetch(CONFIG.WEBHOOK_URL, {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (!response.ok) {
+          throw new Error('Erro ao enviar os documentos. Tente novamente.');
+        }
+        
+        // Sucesso
+        showMsg('Documentação enviada com sucesso! Entraremos em contato em breve.', true);
+        
+        // Resetar formulário após sucesso
+        document.getElementById('fgForm').reset();
+        displayXmlName();
+        displayPdfNames();
+      } catch (error) {
+        showMsg(error.message, false);
+        console.error('Erro no envio:', error);
+      } finally {
+        btnSubmit.innerHTML = originalBtnText;
+        btnSubmit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
